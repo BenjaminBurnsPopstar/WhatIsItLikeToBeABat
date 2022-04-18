@@ -52,7 +52,7 @@ void loop() {
 
   tempo = map(distance, 0, 70, 50, 1000); // maps distance to the variable tempo, 50 - 1000 milliseconds
 
-  if (distance < 70) {
+  if (distance < 70) {                          // only runs if distance is less than 70cm, so that any greater distance does not trigger serial data to send
     if (millis() - previousMillis > tempo) {    // if time elapsed minus previous time is more than tempo, update previous time
       previousMillis = millis();                // and print the raw data from the gyroscope, as well as the variable distance
       Serial.print((int)gyro.g.x);              // with commas between each piece of information, so that the data can be interpreted easily in Processing
